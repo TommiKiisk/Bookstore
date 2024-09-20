@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import fi.haagahelia.course.domain.Book;
 import fi.haagahelia.course.domain.BookRepository;
 
 @Controller
+@RestController
+@RequestMapping("/api/books")
 public class BookController {
 
     @Autowired
@@ -24,6 +27,15 @@ public class BookController {
         model.addAttribute("books", bookRepository.findAll());
         return "booklist";
     }
+
+    // Method to get a book by ID
+    @GetMapping("/{id}")
+    public Book getBookById(@PathVariable Long id) {
+        return bookRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Book not found with id " + id));
+    }
+
+    
 
     // Method to show the form for adding a new book
     @GetMapping("/addbook")
