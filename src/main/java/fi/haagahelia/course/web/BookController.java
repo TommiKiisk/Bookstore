@@ -1,5 +1,7 @@
 package fi.haagahelia.course.web;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,25 +10,38 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import fi.haagahelia.course.domain.Book;
 import fi.haagahelia.course.domain.BookRepository;
+
 
 @Controller
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
 
+    private final AtomicLong counter = new AtomicLong();
+    
+    
+    
+
     @Autowired
     private BookRepository bookRepository;
 
+    
+
     // Method to show the list of books
-    @GetMapping("/booklist")
+    @RequestMapping(value="/booklist", method = RequestMethod.GET)
     public String showBookList(Model model) {
         model.addAttribute("books", bookRepository.findAll());
         return "booklist";
     }
+
+    
 
     // Method to get a book by ID
     @GetMapping("/{id}")
