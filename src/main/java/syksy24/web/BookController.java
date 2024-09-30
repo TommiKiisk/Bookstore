@@ -1,4 +1,4 @@
-package fi.haagahelia.course.web;
+package syksy24.web;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fi.haagahelia.course.domain.Book;
-import fi.haagahelia.course.domain.BookRepository;
+import syksy24.domain.Book;
+import syksy24.domain.BookRepository;
 
 
 @Controller

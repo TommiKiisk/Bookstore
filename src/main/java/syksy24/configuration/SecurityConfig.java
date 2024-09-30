@@ -15,8 +15,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests(authorizeRequests ->
-                authorizeRequests
+            .authorizeRequests(authorize ->
+                authorize
                     .anyRequest().authenticated() // Require authentication for all URLs
             )
             .formLogin(formLogin ->
