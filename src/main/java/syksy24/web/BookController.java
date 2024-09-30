@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +34,7 @@ public class BookController {
     
 
     // Method to show the list of books
-    @RequestMapping(value="/booklist", method = RequestMethod.GET)
+    @GetMapping("/booklist")
     public String showBookList(Model model) {
         model.addAttribute("books", bookRepository.findAll());
         return "booklist";
@@ -55,7 +54,7 @@ public class BookController {
     // Method to show the form for adding a new book
     @GetMapping("/addbook")
     public String showAddBookForm(Model model) {
-        model.addAttribute("book", new Book());  // Pass an empty Book object
+        model.addAttribute("book", new Book(null, null, null, 0));  // Pass an empty Book object
         return "addbook";
     }
 

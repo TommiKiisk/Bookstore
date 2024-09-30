@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface BookRepository extends CrudRepository<Book, Long> {
 
-    List<Book> findByLastName(String lastName);
+    List<Book> findByTitle(String Title);
 }

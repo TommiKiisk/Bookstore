@@ -1,10 +1,11 @@
-package fi.haagahelia.course;
+package syksy24;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-public class BookListApplicationTests {
+
+@SpringBootTest(classes = BookstoreApplication.class)
+public class BookstoreApplicationTests {
 
 	@Test
 	public void contextLoads() {

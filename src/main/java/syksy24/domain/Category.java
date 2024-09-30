@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Category {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long departmentid;
+	private Long categoryid;
 	private String name;
 	
     
@@ -35,12 +35,12 @@ public class Category {
 		this.name = name;
 	}
 	
-	public Long getDepartmentid() {
-		return departmentid;
+	public Long getCategoryid() {
+		return categoryid;
 	}
 	
-	public void setDepartmentid(Long departmentid) {
-		this.departmentid = departmentid;
+	public void setCategory(Long categoryid) {
+		this.categoryid = categoryid;
 	}
 	
 	public String getName() {
@@ -51,16 +51,16 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Book> getStudents() {
+	public List<Book> getBooks() {
 		return books;
 	}
 
-	public void setStudents(List<Book> books) {
+	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
 
 	@Override
 	public String toString() {
-		return "Category [departmentid=" + departmentid + ", name=" + name + "]";
+		return "Category [categoryid=" + categoryid + ", name=" + name + "]";
 	}
 }
