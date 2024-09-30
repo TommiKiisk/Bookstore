@@ -1,4 +1,4 @@
-package fi.haagahelia.course.domain;
+package syksy24.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

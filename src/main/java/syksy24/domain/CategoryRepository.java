@@ -1,4 +1,4 @@
-package fi.haagahelia.course.domain;
+package syksy24.domain;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;

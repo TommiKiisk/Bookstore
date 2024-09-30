@@ -7,6 +7,10 @@
 <body>
     <h1>Book List</h1>
     <a href="/addbook">Add a new book</a> <!-- Link to add new books -->
+    <p>Welcome, <span th:text="${#httpServletRequest.remoteUser}"></span>!</p>
+
+    <a th:href="@{/logout}">Logout</a>
+
     <table border="1">
         <thead>
             <tr>
@@ -26,7 +30,9 @@
                 <td th:text="${book.isbn}">ISBN</td>
                 <td th:text="${book.year}">Year</td>
                 <td>
-                    <a th:href="@{/deletebook/{id}(id=${book.id})}">Delete</a>
+                    <th:block th:if="${#authorization.expression('hasRole(''ADMIN'')')}"></th:block>
+                        <a th:href="@{/deletebook/{id}(id=${book.id})}">Delete</a>
+                    </th:block>
                 </td>
             </tr>
         </tbody>

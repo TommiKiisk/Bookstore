@@ -1,4 +1,4 @@
-package syksy24.bookstore;
+package syksy24;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,8 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import fi.haagahelia.course.domain.Book;
-import fi.haagahelia.course.domain.BookRepository;
+import syksy24.domain.Book;
+import syksy24.domain.BookRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -17,6 +17,7 @@ public class BookstoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
+	
 	
 	@Bean
 	public CommandLineRunner bookDemo(BookRepository repository) {
