@@ -1,6 +1,7 @@
 package syksy24.domain;
 
 import java.util.List;
+import java.util.function.IntPredicate;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -17,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Category {
+    public static final String setName = null;
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long categoryid;
@@ -27,6 +29,7 @@ public class Category {
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Book> books;
+    
 	
 	
 	
@@ -63,4 +66,10 @@ public class Category {
 	public String toString() {
 		return "Category [categoryid=" + categoryid + ", name=" + name + "]";
 	}
+
+	public IntPredicate getId() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getId'");
+	}
+
 }
